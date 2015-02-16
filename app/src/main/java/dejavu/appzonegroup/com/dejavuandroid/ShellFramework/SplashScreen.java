@@ -5,12 +5,10 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.Window;
 
 import dejavu.appzonegroup.com.dejavuandroid.R;
 import dejavu.appzonegroup.com.dejavuandroid.ServerRequest.ConfigurationRequest;
-import dejavu.appzonegroup.com.dejavuandroid.ShellFramework.Constant.FlowConstant;
-import dejavu.appzonegroup.com.dejavuandroid.ToastMessageHandler.ShowMessage;
+import dejavu.appzonegroup.com.dejavuandroid.Constant.FlowConstant;
 
 
 public class SplashScreen extends ActionBarActivity implements ConfigurationRequest.onConfigurationRequest {

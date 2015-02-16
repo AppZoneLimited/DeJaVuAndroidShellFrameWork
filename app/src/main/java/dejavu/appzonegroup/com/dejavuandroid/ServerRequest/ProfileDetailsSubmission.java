@@ -5,7 +5,7 @@ import android.os.AsyncTask;
 
 import java.util.ArrayList;
 
-import dejavu.appzonegroup.com.dejavuandroid.ShellFramework.JSONReader.ProfileDetailsResponseJsonReader;
+import dejavu.appzonegroup.com.dejavuandroid.JSONReader.ProfileDetailsResponseJsonReader;
 import dejavu.appzonegroup.com.dejavuandroid.Models.UserDetailsModel;
 
 /**

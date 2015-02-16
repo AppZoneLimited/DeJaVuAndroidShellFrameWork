@@ -3,7 +3,7 @@ package dejavu.appzonegroup.com.dejavuandroid.ServerRequest;
 import android.content.Context;
 import android.os.AsyncTask;
 
-import dejavu.appzonegroup.com.dejavuandroid.ShellFramework.JSONReader.PinRequestJSONReader;
+import dejavu.appzonegroup.com.dejavuandroid.JSONReader.PinRequestJSONReader;
 
 /**
  * Created by CrowdStar on 2/12/2015.

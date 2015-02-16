@@ -3,7 +3,7 @@ package dejavu.appzonegroup.com.dejavuandroid.ServerRequest;
 import android.content.Context;
 import android.os.AsyncTask;
 
-import dejavu.appzonegroup.com.dejavuandroid.ShellFramework.JSONReader.HardTokenResponseJsonReader;
+import dejavu.appzonegroup.com.dejavuandroid.JSONReader.HardTokenResponseJsonReader;
 
 /**
  * Created by CrowdStar on 2/12/2015.

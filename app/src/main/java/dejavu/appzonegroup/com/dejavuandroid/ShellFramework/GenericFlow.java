@@ -1,21 +1,17 @@
 package dejavu.appzonegroup.com.dejavuandroid.ShellFramework;
 
-import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.telephony.TelephonyManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import dejavu.appzonegroup.com.dejavuandroid.R;
 import dejavu.appzonegroup.com.dejavuandroid.ServerRequest.PinRequest;
 import dejavu.appzonegroup.com.dejavuandroid.ServerRequest.VerifyPin;
 import dejavu.appzonegroup.com.dejavuandroid.ShellFramework.BroadcastReceiver.PinReceiver;
-import dejavu.appzonegroup.com.dejavuandroid.ShellFramework.SharePreferences.UserDetailsSharePreferences;
 import dejavu.appzonegroup.com.dejavuandroid.ShellFramework.UserPhoneDetails.UserDetailsFromPhone;
 import dejavu.appzonegroup.com.dejavuandroid.ToastMessageHandler.ShowMessage;
 

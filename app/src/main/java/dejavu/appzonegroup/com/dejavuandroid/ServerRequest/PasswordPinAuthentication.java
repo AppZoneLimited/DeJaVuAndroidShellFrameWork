@@ -6,7 +6,7 @@ import android.os.AsyncTask;
 import java.util.ArrayList;
 
 import dejavu.appzonegroup.com.dejavuandroid.Models.PasswordPinModel;
-import dejavu.appzonegroup.com.dejavuandroid.ShellFramework.JSONReader.PasswordPinJsonReader;
+import dejavu.appzonegroup.com.dejavuandroid.JSONReader.PasswordPinJsonReader;
 
 /**
  * Created by CrowdStar on 2/12/2015.

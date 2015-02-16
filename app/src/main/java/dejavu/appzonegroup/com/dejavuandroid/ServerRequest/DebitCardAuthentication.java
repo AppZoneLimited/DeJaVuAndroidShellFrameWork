@@ -6,7 +6,7 @@ import android.os.AsyncTask;
 import java.util.ArrayList;
 
 import dejavu.appzonegroup.com.dejavuandroid.Models.DebitCardModel;
-import dejavu.appzonegroup.com.dejavuandroid.ShellFramework.JSONReader.DebitCardResponseJsonReader;
+import dejavu.appzonegroup.com.dejavuandroid.JSONReader.DebitCardResponseJsonReader;
 
 /**
  * Created by CrowdStar on 2/12/2015.

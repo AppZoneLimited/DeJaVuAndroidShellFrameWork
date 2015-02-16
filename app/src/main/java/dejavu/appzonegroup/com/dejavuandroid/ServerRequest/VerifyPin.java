@@ -2,7 +2,7 @@ package dejavu.appzonegroup.com.dejavuandroid.ServerRequest;
 
 import android.os.AsyncTask;
 
-import dejavu.appzonegroup.com.dejavuandroid.ShellFramework.JSONReader.PinVerificationJsonReader;
+import dejavu.appzonegroup.com.dejavuandroid.JSONReader.PinVerificationJsonReader;
 
 /**
  * Created by CrowdStar on 2/12/2015.
