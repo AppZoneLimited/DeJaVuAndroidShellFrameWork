@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="splash_screen_image" type="id"/>
+    <item name="splash_screen_frame" type="id"/>
+    <item name="phone_number_edit_view" type="id"/>
+    <item name="verify_button" type="id"/>
+</resources>
