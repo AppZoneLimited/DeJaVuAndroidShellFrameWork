@@ -3,6 +3,7 @@ package dejavu.appzonegroup.com.dejavuandroid.ServerRequest;
 import android.content.Context;
 import android.os.AsyncTask;
 
+import dejavu.appzonegroup.com.dejavuandroid.Interfaces.TokenAuthenticationListener;
 import dejavu.appzonegroup.com.dejavuandroid.JSONReader.SoftTokenResponseJsonReader;
 
 
@@ -12,20 +13,13 @@ import dejavu.appzonegroup.com.dejavuandroid.JSONReader.SoftTokenResponseJsonRea
 public class SoftTokenAuthentication {
 
     private Context mContext;
-    private SoftAuthenticationListener mAuthenticationListener;
+    private TokenAuthenticationListener mAuthenticationListener;
 
-    public interface SoftAuthenticationListener {
-        public void onAuth();
 
-        public void onFailedAuth();
-
-        public void onFailedRequest();
-    }
-
-    public SoftTokenAuthentication(Context context, SoftAuthenticationListener listener, String hardKey) {
+    public SoftTokenAuthentication(Context context, TokenAuthenticationListener listener, String softKey) {
         mAuthenticationListener = listener;
         mContext = context;
-        sendHardToken(hardKey);
+        sendHardToken(softKey);
     }
 
     private void sendHardToken(String token) {

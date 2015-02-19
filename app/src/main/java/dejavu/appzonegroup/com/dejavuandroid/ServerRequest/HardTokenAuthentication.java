@@ -3,6 +3,7 @@ package dejavu.appzonegroup.com.dejavuandroid.ServerRequest;
 import android.content.Context;
 import android.os.AsyncTask;
 
+import dejavu.appzonegroup.com.dejavuandroid.Interfaces.TokenAuthenticationListener;
 import dejavu.appzonegroup.com.dejavuandroid.JSONReader.HardTokenResponseJsonReader;
 
 /**
@@ -10,17 +11,10 @@ import dejavu.appzonegroup.com.dejavuandroid.JSONReader.HardTokenResponseJsonRea
  */
 public class HardTokenAuthentication {
     private Context mContext;
-    private HardAuthenticationListener mAuthenticationListener;
+    private TokenAuthenticationListener mAuthenticationListener;
 
-    public interface HardAuthenticationListener {
-        public void onAuth();
 
-        public void onFailedAuth();
-
-        public void onFailedRequest();
-    }
-
-    public HardTokenAuthentication(Context context, HardAuthenticationListener listener, String hardKey) {
+    public HardTokenAuthentication(Context context, TokenAuthenticationListener listener, String hardKey) {
         mAuthenticationListener = listener;
         mContext = context;
         sendHardToken(hardKey);
@@ -36,7 +30,7 @@ public class HardTokenAuthentication {
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
-                new HardTokenResponseJsonReader(s,mAuthenticationListener);
+                new HardTokenResponseJsonReader(s, mAuthenticationListener);
             }
         }.execute();
     }

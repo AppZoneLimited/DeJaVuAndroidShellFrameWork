@@ -2,6 +2,7 @@ package dejavu.appzonegroup.com.dejavuandroid.ServerRequest;
 
 import android.os.AsyncTask;
 
+import dejavu.appzonegroup.com.dejavuandroid.Interfaces.pinVerificationListener;
 import dejavu.appzonegroup.com.dejavuandroid.JSONReader.PinVerificationJsonReader;
 
 /**
@@ -11,13 +12,6 @@ public class VerifyPin {
 
     private pinVerificationListener mPinVerificationListener;
 
-    public interface pinVerificationListener {
-        public void onPinValid();
-
-        public void onInvalidPin();
-
-        public void onPinVerificationFailed();
-    }
 
     public VerifyPin(String pin, pinVerificationListener pinVerificationListener) {
         mPinVerificationListener = pinVerificationListener;

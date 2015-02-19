@@ -2,6 +2,7 @@ package dejavu.appzonegroup.com.dejavuandroid.JSONReader;
 
 import org.json.JSONArray;
 
+import dejavu.appzonegroup.com.dejavuandroid.Interfaces.pinVerificationListener;
 import dejavu.appzonegroup.com.dejavuandroid.ServerRequest.VerifyPin;
 import dejavu.appzonegroup.com.dejavuandroid.Constant.ServerResponseCodes;
 
@@ -11,7 +12,7 @@ import dejavu.appzonegroup.com.dejavuandroid.Constant.ServerResponseCodes;
 public class PinVerificationJsonReader {
 
 
-    public PinVerificationJsonReader(String result, VerifyPin.pinVerificationListener pinVerificationListener) {
+    public PinVerificationJsonReader(String result, pinVerificationListener pinVerificationListener) {
         try {
             JSONArray pinRequestJsonString = new JSONArray(result);
             int serverResponseCode = pinRequestJsonString.getJSONObject(0).getInt("response");

@@ -8,25 +8,16 @@
 
     <TextView
         android:gravity="center"
-        android:text="@string/password_pin"
+        android:id="@id/token_label"
+        android:text="@string/phone_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <EditText
-        android:id="@id/token_field"
+        android:id="@id/phone_number_edit_view"
         android:layout_margin="@dimen/activity_horizontal_margin"
         android:gravity="center"
-        android:hint="@string/password"
-        android:inputType="numberPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <EditText
-        android:id="@id/token_field"
-        android:layout_margin="@dimen/activity_horizontal_margin"
-        android:gravity="center"
-        android:hint="@string/pin"
-        android:inputType="numberPassword"
+        android:hint="@string/phone_hint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

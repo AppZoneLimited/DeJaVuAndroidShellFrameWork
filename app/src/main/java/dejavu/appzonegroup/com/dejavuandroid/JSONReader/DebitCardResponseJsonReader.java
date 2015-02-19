@@ -2,6 +2,7 @@ package dejavu.appzonegroup.com.dejavuandroid.JSONReader;
 
 import org.json.JSONArray;
 
+import dejavu.appzonegroup.com.dejavuandroid.Interfaces.CardAuthenticationListener;
 import dejavu.appzonegroup.com.dejavuandroid.ServerRequest.DebitCardAuthentication;
 import dejavu.appzonegroup.com.dejavuandroid.Constant.ServerResponseCodes;
 
@@ -10,7 +11,7 @@ import dejavu.appzonegroup.com.dejavuandroid.Constant.ServerResponseCodes;
  */
 public class DebitCardResponseJsonReader {
 
-    public DebitCardResponseJsonReader(String result, DebitCardAuthentication.CardAuthenticationListener cardAuthenticationListener) {
+    public DebitCardResponseJsonReader(String result, CardAuthenticationListener cardAuthenticationListener) {
 
         try {
             JSONArray cardResponseJsonArray = new JSONArray(result);

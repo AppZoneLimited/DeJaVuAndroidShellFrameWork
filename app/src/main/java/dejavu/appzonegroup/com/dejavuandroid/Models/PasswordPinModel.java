@@ -5,13 +5,13 @@ package dejavu.appzonegroup.com.dejavuandroid.Models;
  */
 public class PasswordPinModel {
     private String password;
-    private String pin;
+    private int pin;
 
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public void setPin(String pin) {
+    public void setPin(int pin) {
         this.pin = pin;
     }
 
@@ -19,7 +19,7 @@ public class PasswordPinModel {
         return password;
     }
 
-    public String getPin() {
+    public int getPin() {
         return pin;
     }
 }

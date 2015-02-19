@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 
 import java.util.ArrayList;
 
+import dejavu.appzonegroup.com.dejavuandroid.Interfaces.AuthenticationListener;
 import dejavu.appzonegroup.com.dejavuandroid.Models.PasswordPinModel;
 import dejavu.appzonegroup.com.dejavuandroid.JSONReader.PasswordPinJsonReader;
 
@@ -16,10 +17,7 @@ public class PasswordPinAuthentication {
     private Context mContext;
     private AuthenticationListener authenticationListener;
 
-    public interface AuthenticationListener {
-        public void onAuth();
-        public void onAuthRejected();
-    }
+
 
     public PasswordPinAuthentication(Context context, AuthenticationListener listener, ArrayList<PasswordPinModel> passwordPinModels) {
         authenticationListener = listener;

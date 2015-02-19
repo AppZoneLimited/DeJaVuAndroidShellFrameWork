@@ -3,6 +3,7 @@ package dejavu.appzonegroup.com.dejavuandroid.ServerRequest;
 import android.content.Context;
 import android.os.AsyncTask;
 
+import dejavu.appzonegroup.com.dejavuandroid.Interfaces.onPinRequest;
 import dejavu.appzonegroup.com.dejavuandroid.JSONReader.PinRequestJSONReader;
 
 /**
@@ -13,13 +14,6 @@ public class PinRequest {
     private Context mContext;
     private onPinRequest mPinRequest;
 
-    public interface onPinRequest {
-        public void onPinRequested();//server successfully sent pin to the user
-
-        public void onPinRequestDenied();//server reject request to give user pin
-
-        public void onRequestFailed();//internet access failure
-    }
 
     public PinRequest(Context context, onPinRequest pinRequest, String phoneNumber) {
         mContext = context;

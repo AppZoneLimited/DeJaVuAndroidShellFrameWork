@@ -2,7 +2,7 @@ package dejavu.appzonegroup.com.dejavuandroid.JSONReader;
 
 import org.json.JSONArray;
 
-import dejavu.appzonegroup.com.dejavuandroid.ServerRequest.SoftTokenAuthentication;
+import dejavu.appzonegroup.com.dejavuandroid.Interfaces.TokenAuthenticationListener;
 import dejavu.appzonegroup.com.dejavuandroid.Constant.ServerResponseCodes;
 
 /**
@@ -10,7 +10,7 @@ import dejavu.appzonegroup.com.dejavuandroid.Constant.ServerResponseCodes;
  */
 public class SoftTokenResponseJsonReader {
 
-    public SoftTokenResponseJsonReader(String result, SoftTokenAuthentication.SoftAuthenticationListener listener) {
+    public SoftTokenResponseJsonReader(String result, TokenAuthenticationListener listener) {
 
         try {
             JSONArray cardResponseJsonArray = new JSONArray(result);

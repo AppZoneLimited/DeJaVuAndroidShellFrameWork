@@ -3,7 +3,7 @@ package dejavu.appzonegroup.com.dejavuandroid.ServerRequest;
 import android.content.Context;
 import android.os.AsyncTask;
 
-import dejavu.appzonegroup.com.dejavuandroid.JSONReader.JSonConfigurationReader;
+import dejavu.appzonegroup.com.dejavuandroid.JSONReader.ConfigurationJsonReader;
 
 /**
  * Created by CrowdStar on 2/12/2015.
@@ -36,7 +36,7 @@ public class ConfigurationRequest {
             @Override
             protected void onPostExecute(String result) {
                 super.onPostExecute(result);
-                new JSonConfigurationReader(result, mConfigurationRequest);
+                new ConfigurationJsonReader(result, mConfigurationRequest);
             }
         }.execute();
     }

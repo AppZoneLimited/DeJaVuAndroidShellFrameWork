@@ -2,6 +2,7 @@ package dejavu.appzonegroup.com.dejavuandroid.JSONReader;
 
 import org.json.JSONArray;
 
+import dejavu.appzonegroup.com.dejavuandroid.Interfaces.AuthenticationListener;
 import dejavu.appzonegroup.com.dejavuandroid.ServerRequest.PasswordPinAuthentication;
 import dejavu.appzonegroup.com.dejavuandroid.Constant.ServerResponseCodes;
 
@@ -10,7 +11,7 @@ import dejavu.appzonegroup.com.dejavuandroid.Constant.ServerResponseCodes;
  */
 public class PasswordPinJsonReader {
 
-    public PasswordPinJsonReader(String result, PasswordPinAuthentication.AuthenticationListener authenticationListener) {
+    public PasswordPinJsonReader(String result, AuthenticationListener authenticationListener) {
         try {
             JSONArray passwordPinJsonArray = new JSONArray(result);
             int serverCodeResult = passwordPinJsonArray.getJSONObject(0).getInt("key");

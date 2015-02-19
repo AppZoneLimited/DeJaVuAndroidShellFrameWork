@@ -2,6 +2,7 @@ package dejavu.appzonegroup.com.dejavuandroid.JSONReader;
 
 import org.json.JSONArray;
 
+import dejavu.appzonegroup.com.dejavuandroid.Interfaces.TokenAuthenticationListener;
 import dejavu.appzonegroup.com.dejavuandroid.ServerRequest.HardTokenAuthentication;
 import dejavu.appzonegroup.com.dejavuandroid.Constant.ServerResponseCodes;
 
@@ -10,7 +11,7 @@ import dejavu.appzonegroup.com.dejavuandroid.Constant.ServerResponseCodes;
  */
 public class HardTokenResponseJsonReader {
 
-    public HardTokenResponseJsonReader(String result, HardTokenAuthentication.HardAuthenticationListener listener) {
+    public HardTokenResponseJsonReader(String result, TokenAuthenticationListener listener) {
 
         try {
             JSONArray cardResponseJsonArray = new JSONArray(result);

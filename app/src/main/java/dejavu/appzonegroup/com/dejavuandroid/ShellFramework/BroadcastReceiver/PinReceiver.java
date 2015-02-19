@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import java.util.Objects;
 
+import dejavu.appzonegroup.com.dejavuandroid.Interfaces.onPinReceivedListener;
+
 /**
  * Created by CrowdStar on 2/12/2015.
  */
@@ -16,11 +18,6 @@ public class PinReceiver extends BroadcastReceiver {
 
     private onPinReceivedListener mPinReceivedListener;
 
-    public interface onPinReceivedListener
-
-    {
-        public void onPinReceived(String pin);
-    }
 
     public PinReceiver() {
         super();

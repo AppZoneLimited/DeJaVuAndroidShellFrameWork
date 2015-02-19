@@ -1,17 +1,21 @@
 package dejavu.appzonegroup.com.dejavuandroid.ShellFramework;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.Random;
+
+import dejavu.appzonegroup.com.dejavuandroid.Fragment.DebitCard;
+import dejavu.appzonegroup.com.dejavuandroid.Fragment.FragmentChanger;
 import dejavu.appzonegroup.com.dejavuandroid.R;
 import dejavu.appzonegroup.com.dejavuandroid.ServerRequest.ConfigurationRequest;
 import dejavu.appzonegroup.com.dejavuandroid.Constant.FlowConstant;
 
 
-public class SplashScreen extends ActionBarActivity implements ConfigurationRequest.onConfigurationRequest {
+public class SplashScreen extends FragmentActivity implements ConfigurationRequest.onConfigurationRequest {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,18 +49,18 @@ public class SplashScreen extends ActionBarActivity implements ConfigurationRequ
 
     @Override
     public void onConfigurationRequestSuccessful(int flow, boolean debit, boolean password, boolean hardToken, boolean softToken) {
-        if (flow == FlowConstant.GENERIC_FLOW) {
 
-        } else if (flow == FlowConstant.BANK_FLOW) {
-
-        } else {
-            // what should i do?
-        }
     }
 
     @Override
     public void onConfigurationRequestFailed() {
-        startActivity(new Intent(SplashScreen.this, GenericFlow.class));
-
+        int flow = new Random().nextInt(2);
+        if (flow == FlowConstant.GENERIC_FLOW) {
+            new FragmentChanger(getSupportFragmentManager(), new DebitCard().newInstance(FlowConstant.GENERIC_FLOW));
+        } else if (flow == FlowConstant.BANK_FLOW) {
+            new FragmentChanger(getSupportFragmentManager(), true, false, true);
+        } else {
+            // what should i do?
+        }
     }
 }

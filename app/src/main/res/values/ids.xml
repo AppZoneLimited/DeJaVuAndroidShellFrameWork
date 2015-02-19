@@ -5,4 +5,13 @@
     <item name="splash_screen_frame" type="id"/>
     <item name="phone_number_edit_view" type="id"/>
     <item name="verify_button" type="id"/>
+    <item name="token_field" type="id"/>
+    <item name="token_label" type="id"/>
+    <item name="cvv" type="id"/>
+    <item name="data_picker_text" type="id"/>
+    <item name="pin" type="id"/>
+    <item name="card_number" type="id"/>
+    <item name="soft_choice" type="id"/>
+    <item name="hard_choice" type="id"/>
+    <item name="debit_choice" type="id"/>
 </resources>

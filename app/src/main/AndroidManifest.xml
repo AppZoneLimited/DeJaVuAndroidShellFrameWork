@@ -29,7 +29,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ShellFramework.GenericFlow"
+            android:name=".Fragment.PhoneRegistration"
             android:label="@string/title_activity_generic_flow" />
 
         <activity

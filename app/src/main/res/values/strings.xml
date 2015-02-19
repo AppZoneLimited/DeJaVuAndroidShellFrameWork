@@ -8,5 +8,22 @@
     <string name="title_activity_generic_flow">GenericFlow</string>
     <string name="title_activity_profile_details_flow">ProfileDetailsFlow</string>
     <string name="title_activity_password_pin_auth">PasswordPinAuth</string>
+    <string name="token_label">Have a token already ?</string>
+    <string name="password_pin">Enter password and pin details below</string>
+    <string name="token_hint">Enter token here</string>
+    <string name="phone_hint">Enter Phone Number</string>
+    <string name="phone_label">Want a number attached to your account ? Make sure the number entered is on this device</string>
+
+    <string name="verify">Verify</string>
+    <string name="card_number">Card Number</string>
+    <string name="card_label">Have a credit card details ? Provider the info in the filed below</string>
+    <string name="cvv">CVV</string>
+    <string name="password">Password</string>
+    <string name="pin">pin</string>
+    <string name="choice">choose a registration method</string>
+    <string name="soft_string">Soft Token</string>
+    <string name="hard_string">Hard Token</string>
+    <string name="card_string">Card Details</string>
+    <string name="data_picker_text">Pick Expiring Date</string>
 
 </resources>

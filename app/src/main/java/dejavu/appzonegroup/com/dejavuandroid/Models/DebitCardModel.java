@@ -4,20 +4,20 @@ package dejavu.appzonegroup.com.dejavuandroid.Models;
  * Created by CrowdStar on 2/12/2015.
  */
 public class DebitCardModel {
-    private String cardNumber;
+    private int cardNumber;
+    private int cvv;
+    private int pin;
     private String expDate;
-    private String cvv;
-    private String pin;
 
-    public void setPin(String pin) {
+    public void setPin(int pin) {
         this.pin = pin;
     }
 
-    public void setCardNumber(String cardNumber) {
+    public void setCardNumber(int cardNumber) {
         this.cardNumber = cardNumber;
     }
 
-    public void setCvv(String cvv) {
+    public void setCvv(int cvv) {
         this.cvv = cvv;
     }
 
@@ -25,15 +25,15 @@ public class DebitCardModel {
         this.expDate = expDate;
     }
 
-    public String getPin() {
+    public int getPin() {
         return pin;
     }
 
-    public String getCardNumber() {
+    public int getCardNumber() {
         return cardNumber;
     }
 
-    public String getCvv() {
+    public int getCvv() {
         return cvv;
     }
 

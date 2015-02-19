@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 
 import java.util.ArrayList;
 
+import dejavu.appzonegroup.com.dejavuandroid.Interfaces.CardAuthenticationListener;
 import dejavu.appzonegroup.com.dejavuandroid.Models.DebitCardModel;
 import dejavu.appzonegroup.com.dejavuandroid.JSONReader.DebitCardResponseJsonReader;
 
@@ -16,13 +17,6 @@ public class DebitCardAuthentication {
     private Context mContext;
     private CardAuthenticationListener mCardAuthenticationListener;
 
-    public interface CardAuthenticationListener {
-        public void onCardAuthenticated();
-
-        public void onInvalidCardDetails();
-
-        public void onRequestFailed();
-    }
 
     public DebitCardAuthentication(Context context, CardAuthenticationListener mListener, ArrayList<DebitCardModel> debitCardModels) {
         mContext = context;
