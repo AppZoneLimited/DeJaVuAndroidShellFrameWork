@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 
 import java.util.ArrayList;
 
+import dejavu.appzonegroup.com.dejavuandroid.Interfaces.ProfileDetailsSubmissionListener;
 import dejavu.appzonegroup.com.dejavuandroid.JSONReader.ProfileDetailsResponseJsonReader;
 import dejavu.appzonegroup.com.dejavuandroid.Models.UserDetailsModel;
 
@@ -16,13 +17,7 @@ public class ProfileDetailsSubmission {
     private Context mContext;
     private ProfileDetailsSubmissionListener mDetailsSubmissionListener;
 
-    public interface ProfileDetailsSubmissionListener {
-        public void onDetailsSubmitted();
 
-        public void onDetailsSubmissionRejected();
-
-        public void onSubmissionFailed();
-    }
 
     public ProfileDetailsSubmission(Context context, ProfileDetailsSubmissionListener listener, ArrayList<UserDetailsModel> userDetailsModels) {
         mContext = context;

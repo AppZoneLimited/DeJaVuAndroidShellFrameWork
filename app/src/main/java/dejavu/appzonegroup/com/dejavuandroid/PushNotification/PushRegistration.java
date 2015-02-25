@@ -3,6 +3,7 @@ package dejavu.appzonegroup.com.dejavuandroid.PushNotification;
 import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
@@ -17,7 +18,10 @@ import java.io.IOException;
 import dejavu.appzonegroup.com.dejavuandroid.Constant.AppConstant;
 import dejavu.appzonegroup.com.dejavuandroid.Constant.ClientResponseCode;
 import dejavu.appzonegroup.com.dejavuandroid.Constant.ServerResponseCodes;
+import dejavu.appzonegroup.com.dejavuandroid.Interfaces.GoogleCloudMessagingListener;
 import dejavu.appzonegroup.com.dejavuandroid.SharePreferences.GcmSharedPreferences;
+import dejavu.appzonegroup.com.dejavuandroid.SharePreferences.UserDetailsSharePreferences;
+import dejavu.appzonegroup.com.dejavuandroid.ToastMessageHandler.ShowMessage;
 
 /**
  * Created by CrowdStar on 2/16/2015.
@@ -27,11 +31,7 @@ public class PushRegistration {
     private Context mContext;
     private GoogleCloudMessagingListener gcmListener;
 
-    public interface GoogleCloudMessagingListener {
-        public void onRegistered();
 
-        public void onRegisterationFailed();
-    }
 
     GcmSharedPreferences gcmSharedPreferences;
 
@@ -72,8 +72,10 @@ public class PushRegistration {
             protected void onPostExecute(Object o) {
                 super.onPostExecute(o);
                 if (0 != ServerResponseCodes.SUCCESS) {
-                    gcmListener.onRegisterationFailed();
+                    gcmListener.onRegistrationFailed();
+                    new ShowMessage(mContext, "Not fully auth", Toast.LENGTH_LONG);
                 } else {
+                    new UserDetailsSharePreferences(mContext).setFullyAuth(true);
                     new GcmSharedPreferences(mContext).setRegistrationId(regId);
                     new GcmSharedPreferences(mContext).setAppVersion(new GcmSharedPreferences(mContext).getAppPackageVersion());
                     gcmListener.onRegistered();
@@ -84,10 +86,10 @@ public class PushRegistration {
 
     public int sendToBackground(String regID) {
         Uri uri = new Uri.Builder()
-                .scheme("")
-                .authority("")
-                .path("")
-                .appendQueryParameter("request", regID)
+                .scheme("http")
+                .authority("dejazuzoneandroid.appspot.com")
+                .path("regID")
+                .appendQueryParameter("regID", regID)
                 .build();
         HttpPost regIDHttpPost = new HttpPost(uri.toString());
         HttpClient regIdHttpClient = new DefaultHttpClient();
@@ -96,7 +98,7 @@ public class PushRegistration {
             int value = Integer.parseInt(regIdHttpClient.execute(regIDHttpPost, stringResponseHandler));
             return value;
         } catch (IOException e) {
-            return ServerResponseCodes.NETWORK_FAILURE;
+            return ServerResponseCodes.UNEXPECTED_ERROR;
         }
     }
 }

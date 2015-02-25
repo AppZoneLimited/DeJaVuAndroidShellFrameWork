@@ -5,7 +5,7 @@ package dejavu.appzonegroup.com.dejavuandroid.Constant;
  */
 public class AppConstant {
     public final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
-    public final static String APP_PROJECT_NUMBER = "";
+    public final static String APP_PROJECT_NUMBER = "195941972477";
     public final static int NEW_VERSION = 0;
     public final static int SAME_VERSION = 1;
     public final static int UPDATE = 2;

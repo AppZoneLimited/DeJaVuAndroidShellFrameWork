@@ -11,9 +11,9 @@ public class UserDetailsModel {
     private String name;
     private String otherName;
     private String emailAddress;
-    private Date dob;
+    private String dob;
 
-    public void setDob(Date dob) {
+    public void setDob(String dob) {
         this.dob = dob;
     }
 
@@ -37,7 +37,7 @@ public class UserDetailsModel {
         this.phoneNumber = phoneNumber;
     }
 
-    public Date getDob() {
+    public String getDob() {
         return dob;
     }
 

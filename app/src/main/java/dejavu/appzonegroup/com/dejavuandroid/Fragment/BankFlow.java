@@ -66,7 +66,7 @@ public class BankFlow extends Fragment implements View.OnClickListener {
         } else if (v == hardTokenChoiceButton) {
             new FragmentChanger(getFragmentManager().beginTransaction(), new HardToken());
         } else if (v == cardTokenChoiceButton) {
-            new FragmentChanger(getFragmentManager().beginTransaction(), new DebitCard().newInstance(FlowConstant.BANK_FLOW));
+            new FragmentChanger(getFragmentManager().beginTransaction(), new DebitCard());
         }
     }
 }

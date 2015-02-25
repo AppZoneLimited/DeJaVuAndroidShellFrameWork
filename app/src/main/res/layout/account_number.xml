@@ -8,27 +8,19 @@
 
     <TextView
         android:gravity="center"
-        android:text="@string/password_pin"
+        android:text="@string/account_number_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <EditText
-        android:id="@id/password_field"
+        android:id="@id/account_number_field"
         android:layout_margin="@dimen/activity_horizontal_margin"
         android:gravity="center"
-        android:hint="@string/password"
+        android:hint="@string/account_number_hint"
         android:inputType="numberPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <EditText
-        android:id="@id/pin_field"
-        android:layout_margin="@dimen/activity_horizontal_margin"
-        android:gravity="center"
-        android:hint="@string/pin"
-        android:inputType="numberPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
     <Button
         android:id="@id/verify_button"

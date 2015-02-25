@@ -2,7 +2,6 @@ package dejavu.appzonegroup.com.dejavuandroid.Fragment;
 
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -10,9 +9,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import dejavu.appzonegroup.com.dejavuandroid.Constant.FlowConstant;
 import dejavu.appzonegroup.com.dejavuandroid.Interfaces.onPinReceivedListener;
 import dejavu.appzonegroup.com.dejavuandroid.Interfaces.onPinRequest;
 import dejavu.appzonegroup.com.dejavuandroid.Interfaces.pinVerificationListener;
@@ -20,6 +20,7 @@ import dejavu.appzonegroup.com.dejavuandroid.R;
 import dejavu.appzonegroup.com.dejavuandroid.ServerRequest.PinRequest;
 import dejavu.appzonegroup.com.dejavuandroid.ServerRequest.VerifyPin;
 import dejavu.appzonegroup.com.dejavuandroid.ShellFramework.BroadcastReceiver.PinReceiver;
+import dejavu.appzonegroup.com.dejavuandroid.ShellFramework.UserPhoneDetails.GeneralPreference;
 import dejavu.appzonegroup.com.dejavuandroid.ShellFramework.UserPhoneDetails.UserDetailsFromPhone;
 import dejavu.appzonegroup.com.dejavuandroid.ToastMessageHandler.ShowMessage;
 
@@ -97,6 +98,12 @@ public class PhoneRegistration extends Fragment implements onPinRequest, onPinRe
 
     @Override
     public void onPinVerificationFailed() {
-        new ShowMessage(getActivity(), "launch from here", 1);
+        if (GeneralPreference.getFlowType(getActivity()) == FlowConstant.BANK_FLOW) {
+            new FragmentChanger(getFragmentManager(),new PasswordPinAuth());
+        } else if (GeneralPreference.getFlowType(getActivity()) == FlowConstant.GENERIC_FLOW) {
+            new FragmentChanger(getFragmentManager(),new ProfileDetails());
+        } else {
+            new ShowMessage(getActivity(), "Wrong flow", Toast.LENGTH_LONG);
+        }
     }
 }

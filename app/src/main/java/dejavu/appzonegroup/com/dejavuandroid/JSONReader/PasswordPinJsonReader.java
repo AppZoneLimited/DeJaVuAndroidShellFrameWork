@@ -21,7 +21,6 @@ public class PasswordPinJsonReader {
                     break;
                 default:
                     authenticationListener.onAuthRejected();
-                    break;
             }
         } catch (Exception e) {
             authenticationListener.onAuthRejected();

@@ -6,5 +6,5 @@ package dejavu.appzonegroup.com.dejavuandroid.Constant;
 public class ServerResponseCodes {
     public static final int SUCCESS = 200;
     public static final int DENY_REQUEST = 504;
-    public static final int NETWORK_FAILURE = 101;
+    public static final int UNEXPECTED_ERROR = 101;
 }

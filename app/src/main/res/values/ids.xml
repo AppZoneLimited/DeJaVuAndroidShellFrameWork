@@ -14,4 +14,11 @@
     <item name="soft_choice" type="id"/>
     <item name="hard_choice" type="id"/>
     <item name="debit_choice" type="id"/>
+    <item name="email_field" type="id"/>
+    <item name="password_field" type="id"/>
+    <item name="pin_field" type="id"/>
+    <item name="name_field" type="id"/>
+    <item name="other_names_fiel" type="id"/>
+    <item name="gender_spinner" type="id"/>
+    <item name="account_number_field" type="id"/>
 </resources>

@@ -1,21 +1,30 @@
 package dejavu.appzonegroup.com.dejavuandroid.ShellFramework;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import java.util.Random;
 
+import dejavu.appzonegroup.com.dejavuandroid.Activities.MainActivity;
 import dejavu.appzonegroup.com.dejavuandroid.Fragment.DebitCard;
 import dejavu.appzonegroup.com.dejavuandroid.Fragment.FragmentChanger;
+import dejavu.appzonegroup.com.dejavuandroid.Fragment.PhoneRegistration;
+import dejavu.appzonegroup.com.dejavuandroid.Interfaces.GoogleCloudMessagingListener;
+import dejavu.appzonegroup.com.dejavuandroid.PushNotification.PushRegistration;
 import dejavu.appzonegroup.com.dejavuandroid.R;
 import dejavu.appzonegroup.com.dejavuandroid.ServerRequest.ConfigurationRequest;
 import dejavu.appzonegroup.com.dejavuandroid.Constant.FlowConstant;
+import dejavu.appzonegroup.com.dejavuandroid.SharePreferences.UserDetailsSharePreferences;
+import dejavu.appzonegroup.com.dejavuandroid.ShellFramework.UserPhoneDetails.GeneralPreference;
+import dejavu.appzonegroup.com.dejavuandroid.ToastMessageHandler.ShowMessage;
 
 
-public class SplashScreen extends FragmentActivity implements ConfigurationRequest.onConfigurationRequest {
+public class SplashScreen extends FragmentActivity implements ConfigurationRequest.onConfigurationRequest, GoogleCloudMessagingListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,13 +63,46 @@ public class SplashScreen extends FragmentActivity implements ConfigurationReque
 
     @Override
     public void onConfigurationRequestFailed() {
-        int flow = new Random().nextInt(2);
-        if (flow == FlowConstant.GENERIC_FLOW) {
-            new FragmentChanger(getSupportFragmentManager(), new DebitCard().newInstance(FlowConstant.GENERIC_FLOW));
-        } else if (flow == FlowConstant.BANK_FLOW) {
-            new FragmentChanger(getSupportFragmentManager(), true, false, true);
-        } else {
-            // what should i do?
-        }
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (new UserDetailsSharePreferences(SplashScreen.this).isRegistered()) {
+                    if (new UserDetailsSharePreferences(SplashScreen.this).isFullyAuth()) {
+                        startActivity(new Intent(SplashScreen.this, MainActivity.class));
+                        finish();
+                    } else {
+                        new PushRegistration(SplashScreen.this, SplashScreen.this);
+                        new ShowMessage(SplashScreen.this, "fully auth plz", Toast.LENGTH_LONG);
+                    }
+                } else {
+                    int flow = new Random().nextInt(2);
+                    GeneralPreference.setFlowType(SplashScreen.this, flow);
+                    if (flow == FlowConstant.GENERIC_FLOW) {
+                        new ShowMessage(SplashScreen.this, "Generic flow", Toast.LENGTH_LONG);
+                        //new FragmentChanger(getSupportFragmentManager(), new DebitCard().newInstance(FlowConstant.GENERIC_FLOW));
+                        new FragmentChanger(getSupportFragmentManager(), new PhoneRegistration());
+                    } else if (flow == FlowConstant.BANK_FLOW) {
+                        //new FragmentChanger(getSupportFragmentManager(), true, false, true);
+                        new FragmentChanger(getSupportFragmentManager(), new PhoneRegistration());
+                        new ShowMessage(SplashScreen.this, "Bank flow", Toast.LENGTH_LONG);
+                    } else {
+                        // what should i do?
+                    }
+                }
+            }
+        }, 5000);
+
+    }
+
+    @Override
+    public void onRegistered() {
+        new UserDetailsSharePreferences(SplashScreen.this).setFullyAuth(true);
+        startActivity(new Intent(SplashScreen.this, MainActivity.class));
+        finish();
+    }
+
+    @Override
+    public void onRegistrationFailed() {
+        new PushRegistration(SplashScreen.this, SplashScreen.this);
     }
 }

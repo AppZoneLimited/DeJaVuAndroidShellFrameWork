@@ -68,5 +68,40 @@ public class UserDetailsSharePreferences {
         return mContext.getSharedPreferences(getClass().getSimpleName(), Context.MODE_PRIVATE).getString(getClass().getSimpleName() + ".email", "");
     }
 
+    public void setPassword(String password) {
+        mContext.getSharedPreferences(getClass().getSimpleName(), Context.MODE_PRIVATE).edit().putString(getClass().getSimpleName() + ".password", password).clear();
+
+    }
+
+    public String getPassword() {
+        return mContext.getSharedPreferences(getClass().getSimpleName(), Context.MODE_PRIVATE).getString(getClass().getSimpleName() + ".password", "");
+    }
+
+    public void setPin(String pin) {
+        mContext.getSharedPreferences(getClass().getSimpleName(), Context.MODE_PRIVATE).edit().putString(getClass().getSimpleName() + ".pin", pin).clear();
+
+    }
+
+    public String getPin() {
+        return mContext.getSharedPreferences(getClass().getSimpleName(), Context.MODE_PRIVATE).getString(getClass().getSimpleName() + ".pin", "");
+    }
+
+    public void setRegister(boolean status) {
+        mContext.getSharedPreferences(getClass().getSimpleName(), Context.MODE_PRIVATE).edit().putBoolean(getClass().getSimpleName() + ".isReg", status).clear();
+
+    }
+
+    public boolean isRegistered() {
+        return mContext.getSharedPreferences(getClass().getSimpleName(), Context.MODE_PRIVATE).getBoolean(getClass().getSimpleName() + ".isReg", false);
+    }
+
+    public void setFullyAuth(boolean status) {
+        mContext.getSharedPreferences(getClass().getSimpleName(), Context.MODE_PRIVATE).edit().putBoolean(getClass().getSimpleName() + ".auth", status).clear();
+
+    }
+
+    public boolean isFullyAuth() {
+        return mContext.getSharedPreferences(getClass().getSimpleName(), Context.MODE_PRIVATE).getBoolean(getClass().getSimpleName() + ".auth", false);
+    }
 
 }

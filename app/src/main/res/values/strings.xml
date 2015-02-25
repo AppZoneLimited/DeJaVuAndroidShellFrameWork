@@ -10,6 +10,7 @@
     <string name="title_activity_password_pin_auth">PasswordPinAuth</string>
     <string name="token_label">Have a token already ?</string>
     <string name="password_pin">Enter password and pin details below</string>
+    <string name="password_auth_text">Enter password attached to your account</string>
     <string name="token_hint">Enter token here</string>
     <string name="phone_hint">Enter Phone Number</string>
     <string name="phone_label">Want a number attached to your account ? Make sure the number entered is on this device</string>
@@ -25,5 +26,12 @@
     <string name="hard_string">Hard Token</string>
     <string name="card_string">Card Details</string>
     <string name="data_picker_text">Pick Expiring Date</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="account_number_hint">Account</string>
+    <string name="email_hint">Enter Email</string>
+    <string name="name">Enter Name</string>
+    <string name="other_names">Other Names</string>
+    <string name="account_number_text">Enter the account number attached to this phone</string>
+
 
 </resources>

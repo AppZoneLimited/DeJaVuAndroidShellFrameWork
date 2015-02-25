@@ -2,6 +2,7 @@ package dejavu.appzonegroup.com.dejavuandroid.JSONReader;
 
 import org.json.JSONArray;
 
+import dejavu.appzonegroup.com.dejavuandroid.Interfaces.ProfileDetailsSubmissionListener;
 import dejavu.appzonegroup.com.dejavuandroid.ServerRequest.ProfileDetailsSubmission;
 import dejavu.appzonegroup.com.dejavuandroid.Constant.ServerResponseCodes;
 
@@ -11,7 +12,7 @@ import dejavu.appzonegroup.com.dejavuandroid.Constant.ServerResponseCodes;
 public class ProfileDetailsResponseJsonReader {
 
 
-    public ProfileDetailsResponseJsonReader(String result, ProfileDetailsSubmission.ProfileDetailsSubmissionListener submissionListener) {
+    public ProfileDetailsResponseJsonReader(String result, ProfileDetailsSubmissionListener submissionListener) {
         try {
             JSONArray pinRequestJsonString = new JSONArray(result);
             int serverResponseCode = pinRequestJsonString.getJSONObject(0).getInt("response");
