@@ -18,20 +18,21 @@ class Home(webapp2.RequestHandler):
         self.response.write(template.render())
     def post(self):
         type = self.request.get('type')
-        if type == 'update':
+        if type == '2':
             sendPush('', '', type)
         else:
             message = self.request.get('body')
-            subject = self.request.get('heading')
+            subject = self.request.get('subject')
             sendPush(message, subject, type)
+            self.redirect('/')
             
 def sendPush(message, subject, type):
     gcm = GCM('AIzaSyDAmrsJsH1jwJHWZvJEKM7xov7Vm3MPDYw')
     recipient = list()
     reg_ids = RegisterDB.all()
-    data = {'message': message, subject: 'subject', 'type':type}
+    data = {'message': message, 'subject': subject, 'key':type}
     for ids in reg_ids:
-        recipient.append(str(ids.appID))
+        recipient.append(str(ids.RegId))
     gcm.json_request(registration_ids=recipient, data=data)
     
 class Register(webapp2.RequestHandler):

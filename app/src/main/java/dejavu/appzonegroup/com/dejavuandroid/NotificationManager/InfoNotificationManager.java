@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 
 import dejavu.appzonegroup.com.dejavuandroid.Activities.InfoActivity;
+import dejavu.appzonegroup.com.dejavuandroid.Activities.MainActivity;
 import dejavu.appzonegroup.com.dejavuandroid.Constant.AppConstant;
 import dejavu.appzonegroup.com.dejavuandroid.R;
 
@@ -23,14 +24,14 @@ public class InfoNotificationManager {
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(context)
                         .setSmallIcon(R.drawable.ic_launcher)
-                        .setContentTitle(context.getString(R.string.app_name))
+                        .setContentTitle(sender)
                         .setStyle(new NotificationCompat.BigTextStyle()
-                                .setSummaryText(sender)
+                                .setSummaryText(message)
                                 .bigText(message))
                         .setContentText(message);
 
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, new Intent(context, InfoActivity.class), 0);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, new Intent(context, MainActivity.class), 0);
         mBuilder.setContentIntent(pendingIntent);
-        mNotificationManager.notify(AppConstant.INFO, mBuilder.build());
+        mNotificationManager.notify(2, mBuilder.build());
     }
 }

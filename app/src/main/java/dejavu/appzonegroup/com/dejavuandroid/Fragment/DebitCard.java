@@ -49,28 +49,30 @@ public class DebitCard extends Fragment implements CardAuthenticationListener, D
             @Override
             public void onClick(View v) {
                 new DebitCardAuthentication(getActivity(), DebitCard.this, buildModel());
+                new ShowMessage(getActivity(), "i reach here", Toast.LENGTH_LONG);
             }
         });
 
         cardNumberTextView = (EditText) rootView.findViewById(R.id.card_number);
         cvvTextView = (EditText) rootView.findViewById(R.id.cvv);
-        pinTextView = (EditText) rootView.findViewById(R.id.pin_field);
+        pinTextView = (EditText) rootView.findViewById(R.id.pin);
         return rootView;
     }
 
 
     @Override
     public void onCardAuthenticated() {
-
+        new ShowMessage(getActivity(), "oauth", Toast.LENGTH_LONG);
     }
 
     @Override
     public void onInvalidCardDetails() {
-
+        new ShowMessage(getActivity(), "invalid", Toast.LENGTH_LONG);
     }
 
     @Override
     public void onRequestFailed() {
+        new ShowMessage(getActivity(), "failed", Toast.LENGTH_LONG);
         new UserDetailsSharePreferences(getActivity()).setRegister(true);
         new PushRegistration(getActivity(), DebitCard.this);
         // new FragmentChanger(getFragmentManager().beginTransaction(), new PhoneRegistration());
@@ -95,7 +97,6 @@ public class DebitCard extends Fragment implements CardAuthenticationListener, D
 
     @Override
     public void onRegistered() {
-        new UserDetailsSharePreferences(getActivity()).setFullyAuth(true);
         startActivity(new Intent(getActivity(), MainActivity.class));
         getActivity().finish();
     }

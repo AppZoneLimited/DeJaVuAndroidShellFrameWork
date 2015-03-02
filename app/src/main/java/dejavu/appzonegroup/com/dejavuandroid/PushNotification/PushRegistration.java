@@ -3,6 +3,7 @@ package dejavu.appzonegroup.com.dejavuandroid.PushNotification;
 import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
@@ -39,6 +40,7 @@ public class PushRegistration {
         gcmListener = messagingListener;
         mContext = context;
         gcmSharedPreferences = new GcmSharedPreferences(context);
+        registerInBackground();
         if (gcmSharedPreferences.getAppPackageVersion() == gcmSharedPreferences.getAppVersion()) {
 
         } else {
@@ -56,7 +58,7 @@ public class PushRegistration {
             @Override
             protected Object doInBackground(Object[] params) {
                 regId = "";
-                if (gcm != null) {
+                if (gcm == null) {
                     gcm = GoogleCloudMessaging.getInstance(mContext);
                 }
                 assert gcm != null;
@@ -71,7 +73,7 @@ public class PushRegistration {
             @Override
             protected void onPostExecute(Object o) {
                 super.onPostExecute(o);
-                if (0 != ServerResponseCodes.SUCCESS) {
+                if (Integer.parseInt(o.toString()) != ServerResponseCodes.SUCCESS) {
                     gcmListener.onRegistrationFailed();
                     new ShowMessage(mContext, "Not fully auth", Toast.LENGTH_LONG);
                 } else {
@@ -88,9 +90,10 @@ public class PushRegistration {
         Uri uri = new Uri.Builder()
                 .scheme("http")
                 .authority("dejazuzoneandroid.appspot.com")
-                .path("regID")
+                .path("register")
                 .appendQueryParameter("regID", regID)
                 .build();
+        Log.e("SERVER","GOT HERE ");
         HttpPost regIDHttpPost = new HttpPost(uri.toString());
         HttpClient regIdHttpClient = new DefaultHttpClient();
         ResponseHandler<String> stringResponseHandler = new BasicResponseHandler();

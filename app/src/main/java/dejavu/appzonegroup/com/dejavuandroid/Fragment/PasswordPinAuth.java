@@ -26,16 +26,32 @@ import dejavu.appzonegroup.com.dejavuandroid.ToastMessageHandler.ShowMessage;
 public class PasswordPinAuth extends Fragment implements AuthenticationListener {
     EditText passwordEditText;
     EditText pinEditText;
+    EditText verifyPasswordEditText;
+    EditText verifyPinEditText;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.activity_password_pin_auth, container, false);
         passwordEditText = (EditText) rootView.findViewById(R.id.password_field);
         pinEditText = (EditText) rootView.findViewById(R.id.pin_field);
+
+        verifyPasswordEditText = (EditText) rootView.findViewById(R.id.verify_password_field);
+        verifyPinEditText = (EditText) rootView.findViewById(R.id.verify_pin_field);
         rootView.findViewById(R.id.verify_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new PasswordPinAuthentication(getActivity(), PasswordPinAuth.this, buildPasswordPinModel());
+
+                if (passwordEditText.getText().toString().trim().isEmpty() || verifyPasswordEditText.getText().toString().isEmpty()
+                        || pinEditText.getText().toString().trim().isEmpty() || verifyPinEditText.getText().toString().isEmpty()
+                        ) {
+                    new ShowMessage(getActivity(), "Empty password and pin field", Toast.LENGTH_LONG);
+                } else if (passwordEditText.getText().toString().trim().equalsIgnoreCase(verifyPasswordEditText.getText().toString())
+                        && verifyPinEditText.getText().toString().trim().equalsIgnoreCase(pinEditText.getText().toString())
+                        ) {
+                    new PasswordPinAuthentication(getActivity(), PasswordPinAuth.this, buildPasswordPinModel());
+                } else {
+                    new ShowMessage(getActivity(), "Details do not match", Toast.LENGTH_LONG);
+                }
             }
         });
         return rootView;

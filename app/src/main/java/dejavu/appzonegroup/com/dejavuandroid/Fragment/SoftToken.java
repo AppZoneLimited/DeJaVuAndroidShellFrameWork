@@ -48,16 +48,13 @@ public class SoftToken extends Fragment implements TokenAuthenticationListener, 
     public void onFailedAuth() {
         //do something on failed
 
-        new UserDetailsSharePreferences(getActivity()).setRegister(true);
-        new PushRegistration(getActivity(), SoftToken.this);
 
     }
 
     @Override
     public void onFailedRequest() {
         new UserDetailsSharePreferences(getActivity()).setRegister(true);
-        // failure from unexpected errors
-        // new FragmentChanger(getFragmentManager().beginTransaction(), new PhoneRegistration());
+        new PushRegistration(getActivity(), SoftToken.this);
     }
 
     @Override

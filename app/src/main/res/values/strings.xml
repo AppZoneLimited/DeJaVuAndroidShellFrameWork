@@ -21,6 +21,8 @@
     <string name="cvv">CVV</string>
     <string name="password">Password</string>
     <string name="pin">pin</string>
+    <string name="verify_password">Verify Password</string>
+    <string name="verify_pin">Verify Pin</string>
     <string name="choice">choose a registration method</string>
     <string name="soft_string">Soft Token</string>
     <string name="hard_string">Hard Token</string>
@@ -31,6 +33,7 @@
     <string name="email_hint">Enter Email</string>
     <string name="name">Enter Name</string>
     <string name="other_names">Other Names</string>
+    <string name="function_name">String here</string>
     <string name="account_number_text">Enter the account number attached to this phone</string>
 
 

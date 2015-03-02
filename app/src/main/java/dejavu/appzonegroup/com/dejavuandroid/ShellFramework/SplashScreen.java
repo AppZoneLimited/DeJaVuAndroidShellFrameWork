@@ -20,6 +20,7 @@ import dejavu.appzonegroup.com.dejavuandroid.R;
 import dejavu.appzonegroup.com.dejavuandroid.ServerRequest.ConfigurationRequest;
 import dejavu.appzonegroup.com.dejavuandroid.Constant.FlowConstant;
 import dejavu.appzonegroup.com.dejavuandroid.SharePreferences.UserDetailsSharePreferences;
+import dejavu.appzonegroup.com.dejavuandroid.ShellFramework.Authetication.PasswordAuth;
 import dejavu.appzonegroup.com.dejavuandroid.ShellFramework.UserPhoneDetails.GeneralPreference;
 import dejavu.appzonegroup.com.dejavuandroid.ToastMessageHandler.ShowMessage;
 
@@ -68,7 +69,7 @@ public class SplashScreen extends FragmentActivity implements ConfigurationReque
             public void run() {
                 if (new UserDetailsSharePreferences(SplashScreen.this).isRegistered()) {
                     if (new UserDetailsSharePreferences(SplashScreen.this).isFullyAuth()) {
-                        startActivity(new Intent(SplashScreen.this, MainActivity.class));
+                        startActivity(new Intent(SplashScreen.this, PasswordAuth.class));
                         finish();
                     } else {
                         new PushRegistration(SplashScreen.this, SplashScreen.this);
@@ -99,6 +100,15 @@ public class SplashScreen extends FragmentActivity implements ConfigurationReque
         new UserDetailsSharePreferences(SplashScreen.this).setFullyAuth(true);
         startActivity(new Intent(SplashScreen.this, MainActivity.class));
         finish();
+    }
+
+
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putString("WORKAROUND_FOR_BUG_19917_KEY", "WORKAROUND_FOR_BUG_19917_VALUE");
+
+        super.onSaveInstanceState(outState);
     }
 
     @Override

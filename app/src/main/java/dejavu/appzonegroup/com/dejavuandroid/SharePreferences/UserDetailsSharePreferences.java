@@ -14,7 +14,7 @@ public class UserDetailsSharePreferences {
     }
 
     public void setPhoneNumber(String number) {
-        mContext.getSharedPreferences(getClass().getSimpleName(), Context.MODE_PRIVATE).edit().putString(getClass().getSimpleName() + ".phoneNumber", number).clear();
+        mContext.getSharedPreferences(getClass().getSimpleName(), Context.MODE_PRIVATE).edit().putString(getClass().getSimpleName() + ".phoneNumber", number).commit();
     }
 
     public String getUserPhoneNumber() {
@@ -22,7 +22,7 @@ public class UserDetailsSharePreferences {
     }
 
     public void setLastName(String lastName) {
-        mContext.getSharedPreferences(getClass().getSimpleName(), Context.MODE_PRIVATE).edit().putString(getClass().getSimpleName() + ".lastName", lastName).clear();
+        mContext.getSharedPreferences(getClass().getSimpleName(), Context.MODE_PRIVATE).edit().putString(getClass().getSimpleName() + ".lastName", lastName).commit();
 
     }
 
@@ -31,7 +31,7 @@ public class UserDetailsSharePreferences {
     }
 
     public void setOtherName(String otherName) {
-        mContext.getSharedPreferences(getClass().getSimpleName(), Context.MODE_PRIVATE).edit().putString(getClass().getSimpleName() + ".otherName", otherName).clear();
+        mContext.getSharedPreferences(getClass().getSimpleName(), Context.MODE_PRIVATE).edit().putString(getClass().getSimpleName() + ".otherName", otherName).commit();
 
     }
 
@@ -40,7 +40,7 @@ public class UserDetailsSharePreferences {
     }
 
     public void setGenderValue(int genderValue) {
-        mContext.getSharedPreferences(getClass().getSimpleName(), Context.MODE_PRIVATE).edit().putInt(getClass().getSimpleName() + ".genderValue", genderValue).clear();
+        mContext.getSharedPreferences(getClass().getSimpleName(), Context.MODE_PRIVATE).edit().putInt(getClass().getSimpleName() + ".genderValue", genderValue).commit();
 
     }
 
@@ -50,7 +50,7 @@ public class UserDetailsSharePreferences {
 
 
     public void setDate(long dateTime) {
-        mContext.getSharedPreferences(getClass().getSimpleName(), Context.MODE_PRIVATE).edit().putLong(getClass().getSimpleName() + ".date", dateTime).clear();
+        mContext.getSharedPreferences(getClass().getSimpleName(), Context.MODE_PRIVATE).edit().putLong(getClass().getSimpleName() + ".date", dateTime).commit();
 
     }
 
@@ -60,7 +60,7 @@ public class UserDetailsSharePreferences {
 
 
     public void setEmail(String email) {
-        mContext.getSharedPreferences(getClass().getSimpleName(), Context.MODE_PRIVATE).edit().putString(getClass().getSimpleName() + ".email", email).clear();
+        mContext.getSharedPreferences(getClass().getSimpleName(), Context.MODE_PRIVATE).edit().putString(getClass().getSimpleName() + ".email", email).commit();
 
     }
 
@@ -69,7 +69,7 @@ public class UserDetailsSharePreferences {
     }
 
     public void setPassword(String password) {
-        mContext.getSharedPreferences(getClass().getSimpleName(), Context.MODE_PRIVATE).edit().putString(getClass().getSimpleName() + ".password", password).clear();
+        mContext.getSharedPreferences(getClass().getSimpleName(), Context.MODE_PRIVATE).edit().putString(getClass().getSimpleName() + ".password", password).commit();
 
     }
 
@@ -78,7 +78,7 @@ public class UserDetailsSharePreferences {
     }
 
     public void setPin(String pin) {
-        mContext.getSharedPreferences(getClass().getSimpleName(), Context.MODE_PRIVATE).edit().putString(getClass().getSimpleName() + ".pin", pin).clear();
+        mContext.getSharedPreferences(getClass().getSimpleName(), Context.MODE_PRIVATE).edit().putString(getClass().getSimpleName() + ".pin", pin).commit();
 
     }
 
@@ -87,7 +87,7 @@ public class UserDetailsSharePreferences {
     }
 
     public void setRegister(boolean status) {
-        mContext.getSharedPreferences(getClass().getSimpleName(), Context.MODE_PRIVATE).edit().putBoolean(getClass().getSimpleName() + ".isReg", status).clear();
+        mContext.getSharedPreferences(getClass().getSimpleName(), Context.MODE_PRIVATE).edit().putBoolean(getClass().getSimpleName() + ".isReg", status).commit();
 
     }
 
@@ -96,7 +96,7 @@ public class UserDetailsSharePreferences {
     }
 
     public void setFullyAuth(boolean status) {
-        mContext.getSharedPreferences(getClass().getSimpleName(), Context.MODE_PRIVATE).edit().putBoolean(getClass().getSimpleName() + ".auth", status).clear();
+        mContext.getSharedPreferences(getClass().getSimpleName(), Context.MODE_PRIVATE).edit().putBoolean(getClass().getSimpleName() + ".auth", status).commit();
 
     }
 

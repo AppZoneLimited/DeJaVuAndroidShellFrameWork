@@ -22,7 +22,7 @@ public class UpdateNotiManager {
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(context)
                         .setSmallIcon(R.drawable.ic_launcher)
-                        .setContentTitle(context.getString(R.string.app_name))
+                        .setContentTitle("Perform an update")
                         .setStyle(new NotificationCompat.BigTextStyle()
                                 .bigText(message))
                         .setContentText(message);
@@ -32,6 +32,6 @@ public class UpdateNotiManager {
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, contentIntent, 0);
 
         mBuilder.setContentIntent(pendingIntent);
-        mNotificationManager.notify(AppConstant.UPDATE, mBuilder.build());
+        mNotificationManager.notify(1, mBuilder.build());
     }
 }
