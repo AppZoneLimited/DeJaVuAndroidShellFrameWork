@@ -88,6 +88,7 @@ public class DebitCard extends Fragment implements CardAuthenticationListener, D
         debitCardModelArrayListModels.add(debitCardModel);
         return debitCardModelArrayListModels;
 
+
     }
 
     @Override

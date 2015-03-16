@@ -36,5 +36,9 @@
     <string name="function_name">String here</string>
     <string name="account_number_text">Enter the account number attached to this phone</string>
 
+    <string name="json_test">
+[{\"Name\": \"Save\",\"EventDescription\" : \"Button to save Student\",\"Event\": \"Save Button Click\",\"SectionColumnName\": \"null\",\"VersionNumber\": \"1.0.0.0\",\"ID\": \"79\",\"IsToSave\": \"false\",\"SuccessMessage\": \"null\",\"FailureMessage\": \"null\"}]
+    </string>
+
 
 </resources>

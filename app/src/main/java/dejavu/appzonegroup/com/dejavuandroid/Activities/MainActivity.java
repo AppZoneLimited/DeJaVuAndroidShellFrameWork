@@ -28,7 +28,7 @@ public class MainActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
-        GridView gridView = (GridView)findViewById(R.id.main_function_grid);
+        GridView gridView = (GridView) findViewById(R.id.main_function_grid);
         gridView.setAdapter(new FunctionAdapter(this));
     }
 
@@ -36,15 +36,19 @@ public class MainActivity extends FragmentActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_activity_menu, menu);
         return super.onCreateOptionsMenu(menu);
+
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.noti) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.addToBackStack(null);
-            transaction.replace(R.id.content_frame, new InfoActivity()).commitAllowingStateLoss();
+            transaction.add(R.id.content_frame, new UiControlTrier().newInstance(getString(R.string.json_test))).commitAllowingStateLoss();
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 }

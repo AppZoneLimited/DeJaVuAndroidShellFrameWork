@@ -29,4 +29,5 @@
     <item name="content_frame" type="id"/>
     <item name="main_function_grid" type="id"/>
     <item name="function_item" type="id"/>
+    <item name="root_linear_vertical" type="id"/>
 </resources>
